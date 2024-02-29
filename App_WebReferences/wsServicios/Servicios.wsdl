@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sv01is01:8080/Servicios/Servicios.asmx" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sv01is01:8080/Servicios/Servicios.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sv01is01:8080/Servicios/Servicios.asmx">
+      <s:element name="Consultar_Disponible">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTipoConsulta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sValor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEntidad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consultar_DisponibleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Consultar_DisponibleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Autorizar_Credired">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCodigoTarjeta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPanTarjeta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sImporteTotal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCuotas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sImporteCuotas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCodigoComercio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPlan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTipoOperacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Autorizar_CrediredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Autorizar_CrediredResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recuperar_Autorizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCodigoTarjeta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPanTarjeta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sImporteTotal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCuotas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTipoOperacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFechaAutorizacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recuperar_AutorizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Recuperar_AutorizacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CPC_Obtener_Stock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTipoConsulta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sArticuloCodigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sIDSucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CPC_Obtener_StockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CPC_Obtener_StockResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CPC_Obtener_Stock_Deposito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sIDSucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CPC_Obtener_Stock_DepositoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CPC_Obtener_Stock_DepositoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Consultar_DisponibleSoapIn">
+    <wsdl:part name="parameters" element="tns:Consultar_Disponible" />
+  </wsdl:message>
+  <wsdl:message name="Consultar_DisponibleSoapOut">
+    <wsdl:part name="parameters" element="tns:Consultar_DisponibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Autorizar_CrediredSoapIn">
+    <wsdl:part name="parameters" element="tns:Autorizar_Credired" />
+  </wsdl:message>
+  <wsdl:message name="Autorizar_CrediredSoapOut">
+    <wsdl:part name="parameters" element="tns:Autorizar_CrediredResponse" />
+  </wsdl:message>
+  <wsdl:message name="Recuperar_AutorizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:Recuperar_Autorizacion" />
+  </wsdl:message>
+  <wsdl:message name="Recuperar_AutorizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:Recuperar_AutorizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_StockSoapIn">
+    <wsdl:part name="parameters" element="tns:CPC_Obtener_Stock" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_StockSoapOut">
+    <wsdl:part name="parameters" element="tns:CPC_Obtener_StockResponse" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_Stock_DepositoSoapIn">
+    <wsdl:part name="parameters" element="tns:CPC_Obtener_Stock_Deposito" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_Stock_DepositoSoapOut">
+    <wsdl:part name="parameters" element="tns:CPC_Obtener_Stock_DepositoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Consultar_DisponibleHttpPostIn">
+    <wsdl:part name="sTipoConsulta" type="s:string" />
+    <wsdl:part name="sValor" type="s:string" />
+    <wsdl:part name="sEntidad" type="s:string" />
+    <wsdl:part name="sSucursal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consultar_DisponibleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Autorizar_CrediredHttpPostIn">
+    <wsdl:part name="sCodigoTarjeta" type="s:string" />
+    <wsdl:part name="sPanTarjeta" type="s:string" />
+    <wsdl:part name="sImporteTotal" type="s:string" />
+    <wsdl:part name="sCuotas" type="s:string" />
+    <wsdl:part name="sImporteCuotas" type="s:string" />
+    <wsdl:part name="sCodigoComercio" type="s:string" />
+    <wsdl:part name="sPlan" type="s:string" />
+    <wsdl:part name="sTipoOperacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Autorizar_CrediredHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Recuperar_AutorizacionHttpPostIn">
+    <wsdl:part name="sCodigoTarjeta" type="s:string" />
+    <wsdl:part name="sPanTarjeta" type="s:string" />
+    <wsdl:part name="sImporteTotal" type="s:string" />
+    <wsdl:part name="sCuotas" type="s:string" />
+    <wsdl:part name="sTipoOperacion" type="s:string" />
+    <wsdl:part name="sFechaAutorizacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Recuperar_AutorizacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_StockHttpPostIn">
+    <wsdl:part name="sTipoConsulta" type="s:string" />
+    <wsdl:part name="sArticuloCodigo" type="s:string" />
+    <wsdl:part name="sIDSucursal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_StockHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_Stock_DepositoHttpPostIn">
+    <wsdl:part name="sIDSucursal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CPC_Obtener_Stock_DepositoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="Consultar_Disponible">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de disponible por: 1=Cuenta, 2=Documento ó 3=Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Consultar_DisponibleSoapIn" />
+      <wsdl:output message="tns:Consultar_DisponibleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Autorizar_Credired">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generación del número de autorización</wsdl:documentation>
+      <wsdl:input message="tns:Autorizar_CrediredSoapIn" />
+      <wsdl:output message="tns:Autorizar_CrediredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Recuperar_Autorizacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recuperar autorización - El formato de fecha de autorización es:'AAAA-MM-DD'</wsdl:documentation>
+      <wsdl:input message="tns:Recuperar_AutorizacionSoapIn" />
+      <wsdl:output message="tns:Recuperar_AutorizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el stock de CP Compras</wsdl:documentation>
+      <wsdl:input message="tns:CPC_Obtener_StockSoapIn" />
+      <wsdl:output message="tns:CPC_Obtener_StockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock_Deposito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el stock depósito de CP Compras</wsdl:documentation>
+      <wsdl:input message="tns:CPC_Obtener_Stock_DepositoSoapIn" />
+      <wsdl:output message="tns:CPC_Obtener_Stock_DepositoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="Consultar_Disponible">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de disponible por: 1=Cuenta, 2=Documento ó 3=Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Consultar_DisponibleHttpPostIn" />
+      <wsdl:output message="tns:Consultar_DisponibleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Autorizar_Credired">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generación del número de autorización</wsdl:documentation>
+      <wsdl:input message="tns:Autorizar_CrediredHttpPostIn" />
+      <wsdl:output message="tns:Autorizar_CrediredHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Recuperar_Autorizacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recuperar autorización - El formato de fecha de autorización es:'AAAA-MM-DD'</wsdl:documentation>
+      <wsdl:input message="tns:Recuperar_AutorizacionHttpPostIn" />
+      <wsdl:output message="tns:Recuperar_AutorizacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el stock de CP Compras</wsdl:documentation>
+      <wsdl:input message="tns:CPC_Obtener_StockHttpPostIn" />
+      <wsdl:output message="tns:CPC_Obtener_StockHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock_Deposito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el stock depósito de CP Compras</wsdl:documentation>
+      <wsdl:input message="tns:CPC_Obtener_Stock_DepositoHttpPostIn" />
+      <wsdl:output message="tns:CPC_Obtener_Stock_DepositoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Consultar_Disponible">
+      <soap:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/Consultar_Disponible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autorizar_Credired">
+      <soap:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/Autorizar_Credired" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recuperar_Autorizacion">
+      <soap:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/Recuperar_Autorizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock">
+      <soap:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/CPC_Obtener_Stock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock_Deposito">
+      <soap:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/CPC_Obtener_Stock_Deposito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Consultar_Disponible">
+      <soap12:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/Consultar_Disponible" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autorizar_Credired">
+      <soap12:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/Autorizar_Credired" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recuperar_Autorizacion">
+      <soap12:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/Recuperar_Autorizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock">
+      <soap12:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/CPC_Obtener_Stock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock_Deposito">
+      <soap12:operation soapAction="http://sv01is01:8080/Servicios/Servicios.asmx/CPC_Obtener_Stock_Deposito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Consultar_Disponible">
+      <http:operation location="/Consultar_Disponible" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autorizar_Credired">
+      <http:operation location="/Autorizar_Credired" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recuperar_Autorizacion">
+      <http:operation location="/Recuperar_Autorizacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock">
+      <http:operation location="/CPC_Obtener_Stock" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CPC_Obtener_Stock_Deposito">
+      <http:operation location="/CPC_Obtener_Stock_Deposito" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://sv01is01:8080/Servicios/Servicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://sv01is01:8080/Servicios/Servicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="http://sv01is01:8080/Servicios/Servicios.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
